@@ -1,0 +1,555 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Face KC Medical Spa</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+    <style>
+       
+        /* Reset some basic styles */
+body, h1, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global styles */
+
+body h1 p{
+    font-family: 'Poppins', Verdana;
+}
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background-color: transparent; /* Slightly transparent background */
+    color: black;
+    z-index: 1000; /* Ensure navbar is above the video */
+    position: relative;/* Fix the navbar to the top */
+    top: 5%; /* Position it at the top */
+    width: 100%; /* Make it full width */
+     /* Add a subtle shadow */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.logo-text span {
+    font-size: 0.75em;
+    font-weight:100;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5em;
+    
+    
+}
+
+
+
+
+/* Hero section styles */
+.landing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4em 2em;
+    height: calc(100vh - 80px); /* Full height of the viewport minus the navbar height */
+    position: relative;
+    z-index: 1; /* Ensure hero content is above the video */
+  /* Add top margin equal to navbar height */
+    background-image: url('../../static/Enhanced\ -\ Model\ BG.jpeg'); /* Replace with your image URL */
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.landing-content {
+    max-width: 600px;
+    text-align: left;
+    margin-right: 50%;
+    color: black; /* Black text */
+}
+
+.landing-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.landing-content p {
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.8em 2em;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 2em;
+}
+
+/* New Product Box Section Styles */
+.product-box {
+    padding: 3em 2em;
+    background-color: #f9f9f9; /* Light grey background */
+    text-align: center;
+}
+
+.product-box-heading {
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition for smooth hover effect */
+}
+
+ img {
+    border-radius: 10px;
+    margin-bottom: 0.5em;
+}
+
+.product-card p {
+    margin-top: 0.5em;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.product-card:hover {
+    transform: translateY(-10px); /* Lift the card up */
+    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2); /* Increase the shadow */
+}
+
+
+
+/* Video Carousel Styles */
+.video-carousel {
+    padding: 3em 0em;
+    background-color: #f9f9f9; /* Light grey background */
+    text-align: center;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.26%; /* 16:9 aspect ratio */
+    overflow: hidden;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Add keyframes for the sliding animation */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Apply the animation to the landing-content */
+.landing-content {
+    max-width: 600px;
+    text-align: left;
+    margin-right: 50%;
+    color: black; /* Black text */
+    animation: slideInLeft 1s ease-out; /* 1 second animation duration */
+}
+
+
+.card-body h3{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:darkblue
+}
+.card-body p{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: darkslategrey;
+    }
+
+
+
+
+   
+    .navbar {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        
+    }
+    
+    .nav-link {
+        font-size: 14px;
+        text-transform: uppercase;
+        margin: 0 10px;
+        padding: 20px;
+    }
+</style>
+
+
+</head>
+
+<body>
+   
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="static '../../../../static/Disney Beauty - Logo ( FINAL ).png" alt="" width="100" height="60">
+              </a>
+            <a class="navbar-brand" href="#">Disney Beauty</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#product">CATEGORY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#New Arrivals">NEW ARRIVALS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cart' %}">CART</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-nav">
+                <a class="nav-link" href="#"><i class="material-icons">person</i></a>
+                {% if username %}
+                <li class="nav-item">
+                    <a class="nav-link">{{username}}</a>
+                </li>
+                {% endif %}
+                
+            </div>
+        </nav>
+    
+    </header>
+
+    <main>
+        <section class="landing">
+            <div class="landing-content">
+                <h1 style="font-family: 'popins', sans-serif;   ">KEEP YOUR SKIN GLOW</h1><br>
+                <p>Indulge in rejuvenating treatments that keep your skin glowing from within.
+                    Discover our spa's serene oasis for relaxation and radiant beauty</p><br>
+                <a href="#" class="cta-button" style="text-decoration: none;">TOP AESTHETIC SERVICES</a>
+            </div>
+        </section>
+
+       
+<br><br>
+<section id="product"><div class="container mt-5" >
+    <div class="row" >
+
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4" >
+            <div  >
+                <img src="{% static '../static/brand5.png' %}"  class="card-img-top" alt="Card image 1">
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+            <div >
+                <img src="{% static '../static/brand1.png' %}" class="card-img-top" alt="Card image 2">
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+            <div >
+                <img src="{% static '../static/brand7.png' %}" class="card-img-top" alt="Card image 3">
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+            <div >
+                <img src="{% static '../static/brand3.png' %}" class="card-img-top" alt="Card image 4">
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+            <div >
+                <img src="{% static '../static/brand4.png' %}" class="card-img-top" alt="Card image 5">
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+            <div >
+                <img src="{% static '../static/brand6.png' %}"  class="card-img-top" alt="Card image 6">
+            </div>
+        </div>
+
+    </div>
+</div>
+    
+</section><br><br><br>
+<style>
+    .card {
+    height: auto;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow */
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-title {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+</style>
+<section><br>
+<h1 style="text-align: center; color:rgb(8, 106, 163); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">"Nourish Your Natural Beauty"</h1><br><br><br>
+
+    <div class="container">
+        <div class="row">
+            {% for cate in category %}
+            <div class="col-sm-6 col-md-4 col-lg-2 mb-3">
+                <div class="card" style="border: none;">
+                    <a href="{% url 'product' cate.name %}">
+                        <img src="{{ cate.category_image.url }}" class="card-img-top" alt="{{ cate.name }}">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ cate.name }}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<br><br>
+        
+<style>
+        .card {
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        
+    </style>
+
+  
+<section id="New Arrivals"><br><br>
+    <div class="container">
+        <h1 class="my-4 text-center" style="text-align: center; color:rgb(8, 106, 163); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">New Arrivals</h1><br>
+        <div class="row">
+            {% for product in new_arrival %}
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                   <div class="card">
+                       <img src="{{ product.product_image.url }}" class="card-img-top"  style="height:300px;" alt="{{ product.product_name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.product_name }}</h5>
+                            <p class="card-text">{{ product.product_des }}</p>
+                            <div class="card-price">₹ {{ product.new_price }}</div>
+                            
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+   </section>  
+
+   <style>
+    /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+footer {
+    background-color: whitesmoke;
+    color:black;
+    padding: 20px 0;
+    /* Add shadow to the top of the footer */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.logo span {
+    color: #00b4d8;
+}
+
+.footer-nav a {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #00b4d8;
+}
+
+.about-company p {
+    font-size: 0.9em;
+}
+
+.social-media a {
+    color: #000; /* Change icon color to black */
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.social-media a:hover {
+    color: #00b4d8; /* Change hover color */
+}
+
+.social-media i {
+    font-size: 1.2em;
+}
+
+
+    </style>
+    <br><br>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="logo">Disney<span>Beauty</span></div>
+                <nav class="footer-nav">
+                    <a href="#">Home</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">About</a>
+                    <a href="{% url 'faq' %}">Faq</a>
+                    <a href="#">Map</a>
+                </nav>
+                <div class="copyright">Company Name © 2015</div>
+            </div>
+            <div class="footer-center">
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> 966/170, Covai road, karur -Tamil Nadu 639001</p>
+                    <p><i class="fas fa-phone-alt"></i> +1.555.555.5555</p>
+                    <p><i class="fas fa-envelope"></i> Email: disneybeauty@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="about-company">
+                    <p>Disney Beauty, where we believe in the magic of beautiful, healthy skin.</p>
+                </div><br>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                   
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

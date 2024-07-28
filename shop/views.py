@@ -32,19 +32,6 @@ def product_details(request,code):
         return render(request,'productdetails.html', {'product':product})
     
 
-def log(request):
-    if request.method=='POST':
-        name=request.POST.get('username')
-        word=request.POST.get('password')
-        
-        user = authenticate(request, username=name, password=word)
-        if user is not None:
-            
-            return redirect('home')  # Replace 'dashboard' with your desired redirect URL after successful login
-        else:
-            messages.error(request, 'Invalid username or password.')
-
-    return render (request, 'login.html')
 
 
 def handler(signum, frame):
